@@ -1,0 +1,94 @@
+---
+title: "let's make great tables"
+author: "Christian Testa"
+format: revealjs
+title-slide-attributes:
+    data-background-image: "https://gt.rstudio.com/reference/figures/gt_tables_footer.png"
+    # data-background-size: contain
+    data-background-opacity: ".4"
+    data-background-color: "black"
+include-in-header:
+  - text: |
+      <style>
+      #title-slide .title {
+      text-shadow: black 1px 0 10px;
+      }
+      #title-slide .quarto-title-authors {
+      text-shadow: black 1px 0 10px;
+      }
+      </style>
+---
+
+## Motivation {data-background-color="#99b3ff"}
+
+*Do you take pride in your work? Do you want your tables to be par excellence?*
+
+$\Rightarrow$ Then tools like `{gt}` can be handy packages for you. 
+
+```r
+install.packages("gt")
+```
+
+![](https://gt.rstudio.com/reference/figures/gt_workflow_diagram.svg)
+
+## Example Dataset {.scrollable data-background-color="#99b3ff"}
+
+```{r}
+#| echo: true 
+library(gt)
+library(palmerpenguins)
+
+head(penguins)
+```
+
+## A First gt Table {.scrollable data-background-color="#99b3ff"}
+
+```{r}
+#| echo: true 
+library(gtsummary)
+gtsummary::tbl_summary(penguins)
+```
+
+## But what about Stratification? {.scrollable data-background-color="#99b3ff"}
+
+```{r}
+gtsummary::tbl_summary(penguins, by = species) 
+```
+
+## Let's do some basic improvements {.scrollable data-background-color="#a29bfe"}
+
+```{r}
+#| echo: true
+#| output-location: slide
+gtsummary::tbl_summary(penguins, by = species) %>% 
+  gtsummary::as_gt() %>% 
+  gt::tab_header(
+    title = md('**Size measurements for adult foraging penguins near Palmer Station,
+Antarctica**'),
+subtitle = '2007-2009'
+  ) %>% 
+  gt::tab_footnote(md("Originally published in: Gorman KB, Williams TD, Fraser WR (2014)
+     *Ecological Sexual Dimorphism and Environmental Variability within
+     a Community of Antarctic Penguins (Genus Pygoscelis).* PLoS ONE
+     9(3): e90081. doi:10.1371/journal.pone.0090081"))
+
+```
+
+## The Most Important Thing I Can Leave You With is Inspiration {data-background-image='green.jpg' data-background-color='black' data-background-opacity='50%'}
+
+:::{.columns}
+:::{.column width='65%'}
+<small>
+
+  - <https://gt.rstudio.com/index.html>
+  - <https://www.danieldsjoberg.com/gtsummary/index.html>
+  - <https://posit.co/blog/2024-table-contest-winners/>
+
+*Personally, I think this is the future:*
+<https://glin.github.io/reactable/articles/examples.html#embedding-html-widgets>
+</small>
+:::
+:::{.column width='35%'}
+![](https://www.danieldsjoberg.com/gtsummary/reference/figures/logo.png)
+:::
+:::
