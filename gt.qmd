@@ -92,3 +92,20 @@ subtitle = '2007-2009'
 ![](https://www.danieldsjoberg.com/gtsummary/reference/figures/logo.png)
 :::
 :::
+
+## Find these slides online on GitHub
+
+:::{.columns}
+:::{.column width='60%'}
+![](slide_cover.png)
+
+<small>
+<https://github.com/ctesta01/gt_lightning_talk/> <br> <br>
+<https://ctesta01.github.io/gt_lightning_talk/gt.html>
+</small>
+
+:::
+:::{.column width='40%'}
+![](qr.png)
+:::
+:::
